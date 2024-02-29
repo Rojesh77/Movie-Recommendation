@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    height: 100vh;
+    /* background: linear-gradient(-45deg,grey,white,yellow) ; */
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("image.jpg");
+    overflow: hidden;
+    background-size: cover;
+    font-family: 'EB Garamond', serif;
+}
+.nav1{
+    /* border: 2px solid red; */
+    width: 90%;
+    font-size: 30px;
+    height: 30px;
+    /* color: red; */
+    padding-top: 10px;
+    padding-left: 150px;
+}
+.nav{
+    color: grey;
+}
+#ch{
+    display: none;
+}
+label{
+    /* display: inline-block;
+    cursor: pointer;
+    color: white;
+    background: green;
+    padding: 3px 13px;
+    border-radius: 12px;
+    margin-top: 12px; */
+    display: inline-block;
+    background-color: #ff4500;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+#ch:checked ~ .info2{
+    display: block;
+}
+#ch:checked ~ label{
+    display: none;
+}
+.info2{
+    display: none;
+
+}
+.header h1{
+    color: white;
+    font-size: 55px;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 3px -3px 10px grey;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.info2{
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color: #666;
+}
+.info{
+    margin-top: 25px;
+    flex: 1;
+    width: 600px;
+    padding: 0px 150px;
+}
+.info h2{
+    font-size: 38px;
+    /* margin-left: 70px; */
+    margin-bottom: 10px;
+    color: white;
+}
+.info p{
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom:20px;
+    color: #666;
+}
+/* .info button{
+    display: inline-block;
+    background-color: #ff4500;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease; 
+} */
+.image{
+    /* flex: 1; */
+    width:40%;
+
+    height: 500px;
+    margin-top:80px;
+    margin-right: 40px;
+}
+img{
+    width: 100%;
+    height: 430px;
+    border-radius: 40px;
+    box-shadow: 3px -3px 10px rgb(158, 146, 146);
+}
+@media screen and (max-width:768px) {
+    .heading h1{
+        font-size: 45px;
+        margin-top: 30px;
+    }
+    .main{
+        margin: 0px;
+    }
+    .container{
+        width: 100%;
+        flex-direction: column;
+        margin: 0px;
+        padding: 0px 40px;
+
+    }
+    .info{
+        width: 100%;
+        margin: 35px 0px;
+    }
+    .info h2{
+        font-size: 30px;
+
+    }
+    .info p{
+        font-size: 30px;
+        margin-bottom: 20px;
+        
+    }
+    .info button{
+        font-size: 16px;
+        padding:8px 16px;
+    }
+    .image{
+        width: 100%;
+    }
+} 
+    
+

@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{   
+    background-image: url("image.jpg");
+    background-position: center;
+    background-size:cover; 
+    background-repeat: no-repeat; 
+    height: auto;
+}
+.box{
+    width: 100%;
+    height: 65px;
+    border: 2px solid #4d687f66;
+    box-shadow: 6px -6px 7px black;
+
+  }
+  nav{
+    /* background-color: #1a191980; */
+    height: 79px;
+    display: flex;
+  }
+ul{
+  display: flex;
+  width:100%; 
+  align-items:center; 
+  /* justify-content: center;    */
+  /* background-color: red; */
+}
+
+li{
+list-style: none;
+padding:50px; 
+/* padding-top: 10px; */
+font-size: 20px;
+}
+nav ul li a{  
+color: white ;
+text-decoration: none;
+}
+a:hover{
+color: rgb(93, 24, 24);
+font-size: 20px;
+}
+/* ya samma nav bar */
+
+.castcrew-container {
+        height: 530px; /* Set your preferred height here */
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+.row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+.col {
+    flex: 0 0 200px;
+    margin: 0px;
+    left: 0px;
+    text-align: center;
+}
+
+h2{
+    /* text-shadow: grey 2px -2px 1.5px; */
+    color:blue;
+}
+p{
+    color: aliceblue;
+    display: inline;
+}
+.box9{
+    border-radius: 50px;
+    margin-top: 50px;
+    margin-left: 120px;
+    border: 2px solid red;
+    box-shadow: 6px -6px 10px white;
+    width: 80%;
+    background: transparent;
+    backdrop-filter: blur(10px);
+}

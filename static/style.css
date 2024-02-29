@@ -1,0 +1,192 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    width: 100%;
+    height: 100vh;
+    /* opacity: 0.8; */
+    /* background-image: url("img1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto; */
+    font-family: 'Oswald', sans-serif;
+  }
+  .box{
+    width: 100%;
+    height: 65px;
+    border: 2px solid #4d687f66;
+    box-shadow: 4px 4px 6px black;
+
+
+  }
+  .header{
+    padding-left: 10px;
+    font-family: 'EB Garamond', serif;
+    font-size: 40px;
+    /* padding-top: 2px; */
+    text-shadow: rgb(27, 19, 19) 4px -4px 10px;
+  }
+  .dp{
+    /* border: 1px solid white; */
+    color: white;
+    margin-left: 2px;
+    margin-top: 2px;
+    display: none;
+  }
+  nav #ge:hover > .dp{
+    display: block;
+  }
+  .animate{
+    color: aliceblue;
+    text-align: center;
+    font-size: 40px;
+    position: relative;
+    font-weight:600;
+    font-family: 'EB Garamond', serif;
+    /* font-family: 'Times New Roman', Times, serif; */
+ }
+ h2::before{
+    content: attr(data-text);
+    position: absolute;
+    color: #1e3c4f;
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid #fff;
+    animation:animate 8s linear infinite;
+    filter: drop-shadow(0 0 10px #fff);
+
+ }
+ @keyframes animate{
+    0%,10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 44%;
+    }
+ } 
+ .select{
+    color: white;
+    
+ }
+ #custom-button{
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(168, 204, 27, 0.5);
+  /* color: rgba(243, 155, 4, 0.5); */
+  transition: all 0.3s;
+ }
+ #custom-button:hover {
+  background-color: red; /* Transparent background color with an alpha value */
+  color: rgba(37, 22, 111, 0.5); /* Solid font color */
+  border: 2px solid rgba(168, 204, 27, 0.5); /* Solid border color */
+  }
+ 
+  /* #recommend-form{
+    width:100vh ; 
+    background-color: blue; 
+    section{
+        border:2px solid red;
+
+    }
+  
+.container{
+    border: 2px solid black;
+    height: calc(100%-65px);
+}  */
+.box3{
+    /* background-color: blue; */
+    background: transparent; 
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    width: 65%;
+    height: 22.1875em;
+    margin-left: 305px;
+    align-items: center;
+    justify-content: center;
+    /* padding-left: 200px; */
+    border: 2px solid #4d687f66;
+    box-shadow: 6px -6px 7px black,-6px 6px 7px black;
+    /* box-shadow: 6px -6px 7px black; */
+
+
+  } 
+  .bgg{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    background-image: url("peakpx (4).jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: change 10s 4s infinite ease-in-out;  
+  }
+  @keyframes change{
+    0%{
+      background-image: url("peakpx (3).jpg");
+    }
+    20%{
+      background-image: url("peakpx (1).jpg");
+    }
+    40%{
+      background-image: url("peakpx (4).jpg");
+    }
+    80%{
+        background-image: url("peakpx (5).jpg");
+    }
+    100%{
+        background-image: url("peakpx (6).jpg");
+    }
+    
+  }
+  .box-footer{
+    box-sizing: border-box;
+    border-top-left-radius:27px;
+    border-top-right-radius:27px;
+    background-color: black;
+    /* backdrop-filter: blur(10px);
+    background: transparent; */
+    height: 80px;
+    border: 1px solid ;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    box-shadow: 4px -4px 6px;
+  }
+  .footercontainer{
+    width: 100%;
+    
+    
+  }
+  .socialIcons{
+    display: flex;
+    justify-content: center;
+  }
+  .socialIcons a{
+    text-decoration: none;
+    padding-top:2px;
+    margin: 10px;
+    background-color: black;
+    border-radius: 50%;
+  }
+  .socialIcons a i{
+    font-size:1.5em;
+    color: white;
+    opacity: 0.9;
+  }
+  
+  .socialIcons a:hover i{
+    color: purple;
+    transition: 0.5s;
+  }
+  
+ 
+     
+
+ 
