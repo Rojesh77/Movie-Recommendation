@@ -34,7 +34,12 @@
       <!-- <p class="caption" style="border:1px solid white; color: rgb(10, 233, 215); font-size: 3vh; height: auto; "><b>{{ recommended_movie_titles[i] }}</b></p> -->
       <!-- <img  src="{{ recommended_movie_posters[i] }}" movieposter="{{ recommended_movie_posters[i] }}" alt="Image 1"  data-movieid="{{ recommended_movie_ids[i] }}" > -->
 
+              <div style="color: rgb(165, 159, 159);text-align: center; font-family: 'EB Garamond', serif;background-color:  #11112b;height: 50px;">
+                <h1><b>RECOMMENDED <span style="color: orangered;">MOVIES</span></b></h1>
+              </div>
+              <br><br>
 
+              <br>
       {% if movie_list %}  
       <div class="container ">
         <div class="slide">
@@ -43,9 +48,9 @@
          <div class="item" style="background-image: url({{recommended_movie_posters[i]}}); " movieposter="{{ recommended_movie_posters[i] }}" alt="Image 1" onclick="redirectToAnotherPage()" data-movieid="{{ recommended_movie_ids[i] }}" >
           
             <div class="content">
-              <div class="title">{{recommended_movie_titles[i]}}</div>
-             <div class="releasee">{{ movie_release_date[i]}}</div>
-             <div class="genres"> {{movie_genres[i]}}</div>
+              <div class="title"><b>{{recommended_movie_titles[i]}}</b></div>
+             <div class="releasee"><b>{{ movie_release_date[i]}}</b></div>
+             <div class="genres"><b> {{movie_genres[i]}}</b></div>
              <!-- <div class="overview">{{movie_overview[i]}}</div> -->
             </div>
             

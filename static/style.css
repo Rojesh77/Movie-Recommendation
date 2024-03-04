@@ -65,7 +65,7 @@ body,html{
         width: 0;
     }
     70%,90%{
-        width: 44%;
+        width: 43.5%;
     }
  } 
  .select{
@@ -185,8 +185,21 @@ body,html{
     color: purple;
     transition: 0.5s;
   }
-  
  
-     
 
- 
+  .img3 {
+      text-align: center;
+  }
+
+  .img3 img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+  }
+
+  .caption {
+      font-size: 16px; /* Decrease font size for smaller screens */
+      padding: 5px; /* Adjust padding for smaller screens */
+  }
+
+

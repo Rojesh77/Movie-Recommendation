@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{   
-    background-image: url("image.jpg");
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("image.jpg");
     background-position: center;
     background-size:cover; 
     background-repeat: no-repeat; 
@@ -47,7 +47,7 @@ font-size: 20px;
 /* ya samma nav bar */
 
 .castcrew-container {
-        height: 530px; /* Set your preferred height here */
+        height: 310px; /* Set your preferred height here */
         width: 100%;
         overflow-y: auto;
         overflow-x: hidden;
@@ -72,11 +72,12 @@ p{
     display: inline;
 }
 .box9{
-    border-radius: 50px;
+    /* border-radius: 50px; */
     margin-top: 50px;
     margin-left: 120px;
-    border: 2px solid red;
-    box-shadow: 6px -6px 10px white;
+    /* border: 2px solid red; */
+    box-shadow: 6px -6px 20px rgb(108, 100, 100);
+    height: 500px;
     width: 80%;
     background: transparent;
     backdrop-filter: blur(10px);

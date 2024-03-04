@@ -14,9 +14,9 @@
         </head>
 
 <body>
-    <div class="box">
+    <!-- <div class="box">
         <div style="display: flex;background-color: #4d687f66;height: 65px;">
-          <h2 style="padding-top: 7px; padding-left: 20px; width: 50%; text-shadow: grey 4px -4px 8px;color: white;"><b>Movie <span style="color:orangered ;">Recommendation</span> System..</b></h2>
+          <h2 style="padding-top: 7px; padding-left: 20px; width: 50%; text-shadow: grey 4px -4px 8px;color: white;font-family: 'EB Garamond', serif;"><b>Movie <span style="color:orangered ;">Recommendation</span> System..</b></h2>
       <nav>
       <ul style="text-shadow: 2px 2px 5px #43464a">
       <li><a href="/"><b>HOME</b></a></li>
@@ -26,12 +26,12 @@
       </ul>
       </nav>
       </div>
-      </div>
-    
+      </div> -->
+     
       
+      <h1 style="color: darkgray;text-align: center;text-shadow: grey 2px -2px 6px; width: 100%;font-family: 'EB Garamond', serif;margin-top: 10px;font-size: 50px;"><b><u>MOVIE DETAILS</u> </b></h1><br>
       <div class="box9">
           <div class="container text-center">
-              <h1 style="color: darkgray;text-align: center;text-shadow: grey 4px -4px 8px; width: 100%;"><b><u>MOVIE DETAILS</u> </b></h1><br><br>
               <div class="row">
             <div class="col ">
                 
@@ -40,22 +40,22 @@
               </div>
               <div class="col">
                     <div>
-                        <h2 style="color: #00bcd4;"><u><i>Title:</i></u></h2>
+                        <h2 style="color: #a4a627"><i>Title:</i></h2>
                         <p>{{ title }}</p>
                     </div> <br>
                 
                     <div style="display: inline;">
-                        <h2 style="color: #00bcd4";><u><i>Overview:</i></u></h2>
+                        <h2 style="color: #a4a627";><i>Overview:</i></h2>
                         <p>{{ overview }}</p>
                     </div> <br>
                 
                     <div>
-                        <h2 style="color: #00bcd4";><u><i> Release Date:</i></u></h2>
+                        <h2 style="color: #a4a627";><i> Release Date:</i></h2>
                         <p>{{ release_date }}</p>
                     </div> <br>
                 
                     <div>
-                        <h2 style="color: #00bcd4";><i>Genres:</i></h2>
+                        <h2 style="color: #a4a627";><i>Genres:</i></h2>
                         <p>{{ genres }}</p>
                     </div> <br>
               </div>
@@ -68,29 +68,29 @@
     <div class="container">
 
         <div>
-            <h2 style="color: #70531b;"><b><i> Cast:</i></b></h2>
+            <h2 style="color: #ced4de;font-size: 40px;"><b><i> Cast</i></b></h2>
             <div class="castcrew-container">
                 <div class="row">
                     {% for actor in cast %}
                         <div class="col">
                             <img src="{{ actor.image_url }}" alt="{{ actor.name }} Image" height="200px" width="200px">
-                            <p style=" color:#9db5b4; font-size: 3vh; background-color: rgba(0, 0, 0, 0.5);">{{ actor.name }}</p>
+                            <p style=" color:#9db5b4;display:inline-block; font-size: 3vh; background-color: rgba(0, 0, 0, 0.5);">{{ actor.name }}</p>
                         </div>
                     {% endfor %}
                 </div>
             </div>
-        </div> <br> <br><br>
+        </div> 
 
 
 
         <div>
-            <h2 style="color:#70531b;"><b><i>Crew:</i></b></h2>
+            <h2 style="color:#ced4de;font-size: 40px;"><b><i>Crew</i></b></h2>
             <div class="castcrew-container">
                 <div class="row">
                     {% for member in crew %}
                         <div class="col">
                             <img src="{{ member.image_url }}" alt="{{ member.name }} Image" height="200px" width="200px">
-                            <p style="color:#9db5b4; font-size: 3vh; background-color: rgba(0, 0, 0, 0.5);">{{ member.name }}</p>
+                            <p style="color:#9db5b4;display:inline-block; font-size: 3vh;width:100%; background-color: rgba(0, 0, 0, 0.5);">{{ member.name }}</p>
                         </div>
                     {% endfor %}
                 </div>

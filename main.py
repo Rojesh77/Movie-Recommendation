@@ -3,13 +3,7 @@ import requests
 import pandas as pd
 import pickle
 
-
 app = Flask(__name__)
-
-
-
-
-
 
 movie = pickle.load(open('movie_dict.pkl', 'rb'))
 movies = pd.DataFrame(movie)
@@ -33,6 +27,19 @@ def fetch_poster(movie_id):
     return full_path
 
 
+# Function to fetch movie details from TMDb
+def fetch_movie_details(movie_id):
+    # TMDb API endpoint for movie details
+    url = f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=d407e9b21a2d3ddb0969dd8f6b89ffc3&language=en-US'
+    
+    # Make a GET request to TMDb API
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        movie_details = response.json()
+        return movie_details
+    else:
+        return None
 
 # Function to get recommended movies
 def get_recommendations(movie):
@@ -69,61 +76,55 @@ def get_recommendations(movie):
     return movie_titles, movie_posters, movie_ids, movie_release_date, movie_genres, movie_overview
 
 
-
-# home page
-
-@app.route('/')
-
-def HOME():
-
-    movie_list = movies['title'].tolist()
-
-    return render_template('index1.html', movie_list=movie_list)
-
-@app.route('/contact')
-
-def contact():
-
-    return render_template('contact.html')
-@app.route('/services')
-
-def services():
-        
-    return render_template('services.html')
-@app.route('/about')
-
-def about():
-        
-    return render_template('about.html')
-
 @app.route('/index2')
-
 def index2():
      movie_list = movies['title'].tolist()
-    #  genres = movies['genres'].tolist()
-    #  overview = movies['overview'].tolist()
-    #  release_date = movies['release_date'].tolist()
-    #  genres = ', '.join([genre['name'] for genre in movies.get('genres', [])])
-
-
-
-   
-    #  if movie_details:
-    #         # Extract necessary details (e.g., poster, overview, release date
-    #         title = movie_details.get('title')
-    #         overview = movie_details.get('overview')
-    #         release_date = movie_details.get('release_date')
-    #         genres = ', '.join([genre['name'] for genre in movie_details.get('genres', [])])
-
-
-    
      return render_template('index2.html',
                             movie_list=movie_list,
                             )
+# Recommendation page
+@app.route('/recommend', methods=['POST'])
+def recommend():
+    movie_title = request.form['selected_movie']
+    recommended_movie_titles, recommended_movie_posters, recommended_movie_ids, movie_release_date, movie_genres, movie_overview = get_recommendations(movie_title)
 
-@app.route('/teest') 
-def teest():
-       return render_template('teest.html')
+    # Fetch popular movies again (can be optimized to avoid duplicate calls)
+    url = f'https://api.themoviedb.org/3/movie/popular?api_key=d407e9b21a2d3ddb0969dd8f6b89ffc3&language=en-US&page=1'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        popular_movies = data.get('results')
+    else:
+        popular_movies = []
+
+    return render_template('index2.html',
+                       recommended_movie_ids=recommended_movie_ids,
+                       movies=popular_movies,
+                       recommended_movie_titles=recommended_movie_titles,
+                       recommended_movie_posters=recommended_movie_posters,
+                       movie_release_date = movie_release_date,
+                       movie_genres =movie_genres,
+                       movie_overview = movie_overview,
+                       movie_list=movies['title'].tolist(),
+                       
+                       )
+# home page
+@app.route('/')
+def HOME():
+    movie_list = movies['title'].tolist()
+    return render_template('index1.html', movie_list=movie_list)
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/services')
+def services():     
+    return render_template('services.html')
+
+@app.route('/about')
+def about():    
+    return render_template('about.html')
 
 # New function to fetch cast and crew with their images
 def fetch_cast_and_crew(movie_id):
@@ -135,7 +136,8 @@ def fetch_cast_and_crew(movie_id):
     if response.status_code == 200:
         data = response.json()
         cast = data['cast'][:5]
-        crew = data.get('crew', [])
+        crew = data['crew'][:10]
+        # crew = data.get('crew', [])
 
         #many name were coming multiple time so i made a small change to store unique cast and crew
         # Create sets to store unique names for both cast and crew
@@ -168,27 +170,10 @@ def fetch_cast_and_crew(movie_id):
 
     return cast_and_crew
 
-
-
-
-
-# Function to fetch movie details from TMDb
-def fetch_movie_details(movie_id):
-    # TMDb API endpoint for movie details
-    url = f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=d407e9b21a2d3ddb0969dd8f6b89ffc3&language=en-US'
-    
-    # Make a GET request to TMDb API
-    response = requests.get(url)
-    
-    if response.status_code == 200:
-        movie_details = response.json()
-        return movie_details
-    else:
-        return None
     
 
 @app.route('/show_movie')
-def show_movie():
+def show_movie(): 
     movie_id = request.args.get('movie_id')
 
     if movie_id:
@@ -219,39 +204,6 @@ def show_movie():
             return 'Movie details not found'
     else:
         return 'Movie ID not provided'
-
-
-
-
-
-
-# Recommendation page
-@app.route('/recommend', methods=['POST'])
-def recommend():
-    movie_title = request.form['selected_movie']
-    recommended_movie_titles, recommended_movie_posters, recommended_movie_ids, movie_release_date, movie_genres, movie_overview = get_recommendations(movie_title)
-
-    # Fetch popular movies again (can be optimized to avoid duplicate calls)
-    url = f'https://api.themoviedb.org/3/movie/popular?api_key=d407e9b21a2d3ddb0969dd8f6b89ffc3&language=en-US&page=1'
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
-        popular_movies = data.get('results')
-    else:
-        popular_movies = []
-
-    return render_template('index2.html',
-                       recommended_movie_ids=recommended_movie_ids,
-                       movies=popular_movies,
-                       recommended_movie_titles=recommended_movie_titles,
-                       recommended_movie_posters=recommended_movie_posters,
-                       movie_release_date = movie_release_date,
-                       movie_genres =movie_genres,
-                       movie_overview = movie_overview,
-                       movie_list=movies['title'].tolist(),
-                       
-                       )
-
 
 # Run the app
 if __name__ == '__main__':

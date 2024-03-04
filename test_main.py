@@ -13,6 +13,7 @@ def test_fetch_poster():
 
 def test_get_recommendations():
     movie_title = 'Avatar' 
+    get_recommendations(movie_title)
     recommended_titles, recommended_posters, recommended_ids = get_recommendations(movie_title)
     assert len(recommended_titles) == 8
     assert len(recommended_posters) == 8
